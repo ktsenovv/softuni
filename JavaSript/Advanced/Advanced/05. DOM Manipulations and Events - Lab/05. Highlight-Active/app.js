@@ -1,0 +1,16 @@
+function focused() {
+    const fields = Array.from(document.getElementsByTagName('input'));
+
+    for (const field of fields) {
+        field.addEventListener('focus', onFocus);
+        field.addEventListener('blur', onBlur);
+    }
+
+    function onFocus(e) {
+        e.target.parentNode.className = 'focused';
+    }
+
+    function onBlur(e) {
+        e.target.parentNode.className = '';
+    }
+}
