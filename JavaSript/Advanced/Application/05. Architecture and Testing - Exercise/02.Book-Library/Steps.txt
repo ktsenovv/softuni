@@ -1,0 +1,7 @@
+1. Start REST server.
+2. Open VS Code from here.
+3. Start Live Server.
+4. Open terminal.
+5. Type npm install.
+6. Type mocha (if it is global) or npm install -g mocha (to install it globally) and then type mocha.
+That's all! :)
