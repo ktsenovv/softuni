@@ -1,0 +1,44 @@
+<main>
+  <div class="theme-msg" *ngIf="!isLoggedIn">
+    <app-welcome-msg />
+  </div>
+  <div *ngIf="isLoading">
+    <app-loader />
+  </div>
+  <div *ngIf="!isLoading" class="theme-title">
+    <!-- theme component  -->
+    <div *ngFor="let theme of themes" class="theme-container">
+      <div class="theme-name-wrapper">
+        <div class="theme-name">
+          <a [routerLink]="theme._id" class="normal">
+            <h2>{{ theme.themeName | slice : 25 }}</h2>
+          </a>
+          <div class="columns">
+            <div>
+              <p>
+                Date:
+                <time>{{
+                  theme.created_at | dateTime : "YYYY-MM-DD hh:mm:ss"
+                }}</time>
+              </p>
+              <div class="nick-name">
+                <p>
+                  Username: <span>{{ theme.userId.username }}</span>
+                </p>
+              </div>
+            </div>
+            <div class="subscribers">
+              <button class="subscribe">Subscribe</button>
+              <!-- *ngIf="isLoggedIn && !isSubscribed(theme)" -->
+              <button class="unsubscribe">Unsubscribe</button>
+              <!-- *ngIf="isLoggedIn && isSubscribed(theme)" -->
+              <p>
+                Subscribers: <span>{{ theme.subscribers.length || 0 }}</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
